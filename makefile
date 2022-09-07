@@ -63,7 +63,7 @@ notebook:
 	poetry run jupyter nbconvert ./notebooks/$(NTB_NAME).ipynb --TagRemovePreprocessor.enabled=True \
        --TagRemovePreprocessor.remove_cell_tags="['verbose', 'hidden_cell', 'hide_cell']" \
        --to html --TemplateExporter.exclude_input=True --no-prompt; \
-    cp ./notebooks/$(NTB_NAME).html ./output/$(NTB_NAME).html
+    mv ./notebooks/$(NTB_NAME).html ./output/$(NTB_NAME).html
 
 build: clean lint
 	poetry build -f wheel -n
