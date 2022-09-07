@@ -76,7 +76,7 @@ def run_pipeline(input_path: str, output_path: str, track: bool = True) -> None:
     rnn.fit(train_transformed, verbose=False)
 
     # 4. Evaluate model.
-    scores_test, _, _, fig = evaluate_model(
+    scores_test, scores_backtest, _, fig = evaluate_model(
         rnn, series_transformed, train_transformed, test_transformed, retrain=False
     )
 
@@ -102,7 +102,7 @@ def run_pipeline(input_path: str, output_path: str, track: bool = True) -> None:
             elapsed=f"{elapsed:.2f} min",
         )
         tracker.log(
-            metrics=scores_test,
+            metrics=scores_backtest,
             artifacts=(
                 os.path.join(input_path, "raw", config["raw_data"]),
                 figure_file,

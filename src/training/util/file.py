@@ -17,6 +17,7 @@ class FileUtil:
 
     def __init__(self, input_path: str = None, output_path: str = None) -> None:
         self.input_path = input_path
+        create_folders(output_path)
         self.output_path = output_path
 
     def get_raw_data(self, file: str) -> pd.DataFrame:
@@ -36,6 +37,7 @@ class FileUtil:
         """
         Function to save csv data to file.
         """
+        create_folders(os.path.dirname(file))
         data.to_csv(file)
 
     def save_model(self, model: Any, model_name: str):
@@ -57,6 +59,7 @@ class FileUtil:
         """
         Function to save transformer to pickle file.
         """
+        create_folders(os.path.dirname(file))
         with open(file, "wb") as f:
             pickle.dump(transformer, f)
 
