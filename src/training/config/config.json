@@ -1,0 +1,16 @@
+{
+    "raw_data": "DTSE_AIS_unemployment_task_data.csv",
+    "name": "LSTM",
+	"train_fraction": 0.8,
+    "training_parameters": {
+        "model": "LSTM",
+        "input_chunk_length": 58,
+        "hidden_dim": 20,
+        "dropout": 0.2,
+        "batch_size": 16,
+        "n_epochs": 100,
+        "optimizer_kwargs": {"lr": 3e-4},
+        "random_state": 19283,
+        "training_length": 50
+    }
+}
