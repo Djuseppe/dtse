@@ -58,6 +58,7 @@ test:
 	poetry run coverage erase
 
 notebook:
+	mkdir -p output; \
 	rm -rf ./output/$(NTB_NAME).html; \
 	poetry run jupyter nbconvert ./notebooks/$(NTB_NAME).ipynb --TagRemovePreprocessor.enabled=True \
        --TagRemovePreprocessor.remove_cell_tags="['verbose', 'hidden_cell', 'hide_cell']" \
