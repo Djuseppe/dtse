@@ -47,7 +47,7 @@ datatest: dvc
 	poetry run python -m unittest discover -v -s ./tests  -p data*.py
 
 train: clean dvc datatest
-	poetry run python src/training/pipeline.py data dtse_model; \
+	poetry run python src/training/pipeline.py data dtse_model --track true; \
 	rm -rf darts_logs
 
 test:

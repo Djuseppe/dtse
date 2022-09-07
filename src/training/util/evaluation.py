@@ -26,51 +26,6 @@ def get_prediction(
     return model.predict(n=pred_horizon)
 
 
-# def evaluate_model(
-#     model: Any,
-#     train_series: TimeSeries,
-#     test_series: TimeSeries,
-#     pred_horizon: int,
-#     predict_from_train: bool = False,
-#     num_samples: int = 100,
-#     transformer: Pipeline = None,
-#     metrics: dict[str : darts.metrics] = None,
-#     plot: bool = True,
-#     n_digits: int = 2,
-#     plot_scale: float = 0.8,
-# ) -> Tuple[dict, TimeSeries, TimeSeries, plt.figure]:
-#     # Get prediction.
-#     pred_series = get_prediction(
-#         model, pred_horizon, train_series, predict_from_train, num_samples
-#     )
-#     # Inverse-transform TS if transformer was passed.
-#     if transformer is not None:
-#         train_series, test_series, pred_series = (
-#             transformer.inverse_transform(ser)
-#             for ser in (train_series, test_series, pred_series)
-#         )
-#     # Calculate metrics for back test and for test/validation.
-#     if metrics is None:
-#         metrics = dict(MSE=mse, MAPE=mape)
-#     metrics_test = {}
-#     for name, metric in metrics.items():
-#         metrics_test[name] = round(metric(pred_series, test_series), n_digits)
-#     # Plot results.
-#     plt.figure(figsize=np.array((8, 5)) * plot_scale)
-#     train_series.plot(label="train data")
-#     test_series.plot(label="test data")
-#     pred_series.plot(label="pred data")
-#     plt.legend()
-#     title = ""
-#     for name, metric in metrics_test.items():
-#         title += f" {name} = {metric} |"
-#     plt.title(title)
-#     plt.ylabel(train_series.columns[0])
-#     plt.xlabel(f"Time [{train_series.freq_str}]")
-#     plt.legend()
-#     return metrics_test, pred_series, test_series, fig
-
-
 def evaluate_model(
         model: Any,
         series: TimeSeries,

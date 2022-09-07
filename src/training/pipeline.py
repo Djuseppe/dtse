@@ -40,7 +40,6 @@ def run_pipeline(input_path: str, output_path: str, track: bool = True) -> None:
     config = load_config(CONFIG_FILE)
     # Setup folder structure
     file_util = FileUtil(input_path, output_path)
-    # file_util.create_training_folders()
 
     # 1. Prepare data
     # Read raw data.
@@ -82,6 +81,9 @@ def run_pipeline(input_path: str, output_path: str, track: bool = True) -> None:
     )
 
     # 5. Save assets.
+    # Save fig.
+    figure_file = os.path.join(os.path.dirname(__file__), "images", "RNN_backtest.png")
+    file_util.save_figure(fig, figure_file)
     # Save model.
     model_file = f"{config['name']}.pt"
     file_util.save_model(rnn, model_file)

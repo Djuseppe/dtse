@@ -5,6 +5,11 @@ from typing import Any
 import pandas as pd
 
 
+def create_folders(path):
+    if not os.path.exists(path):
+        os.makedirs(path, exist_ok=True)
+
+
 class FileUtil:
     """
     Class for file operations: saving, loading, etc.
@@ -44,6 +49,7 @@ class FileUtil:
         """
         Function to save figure.
         """
+        create_folders(os.path.dirname(file))
         figure.savefig(file, format="png")
 
     @staticmethod
