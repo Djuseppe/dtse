@@ -9,6 +9,15 @@ __pycache__/
 # Pycharm
 .idea/
 
+data/
+darts*/
+models/
+
+# MLFlow
+mlflow_service/
+
+!**/*.dvc
+
 # Distribution / packaging
 .Python
 build/
