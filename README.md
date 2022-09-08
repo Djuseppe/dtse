@@ -5,13 +5,23 @@ DTSE interview task.
 
 To be able to run the in this repo [make utility](https://www.gnu.org/software/make/)
 and [docker](https://www.docker.com/) are required.
+[Poetry](https://python-poetry.org/) is used as a Python package manager, to install execute the cmd:
+```bash
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
+```
 
-To set up environment execute the following:
+To set up Python environment execute the following:
 ```bash
 make install
 ```
 
-### The whole task consists of different parts:**
+To pull the data from AWS S3 one needs to set up [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+and then run:
+```bash
+make dvc
+```
+
+### The whole task consists of different parts:
 1. EDA & modeling is done in [Jupyter ntb](./notebooks/eda_modelling.ipynb).
 There's also an HTML version this notebook, however it's not a part of the repo,
 but can be easily obtained by calling (ntb appears in the `./output`):
